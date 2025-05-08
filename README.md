@@ -24,3 +24,17 @@ A basic Python chatbot that learns how to respond to user input by saving custom
 1. Clone the repository:
    ```bash
    git clone https://github.com/AlirezaAhmadiTech/Simple-chatbot.git
+
+---
+
+### 📌 Notes
+
+- You can teach the bot new responses during the conversation.
+- To provide multiple responses for the same input, separate them with a hyphen `-`. For example:
+      hi-hello-hey
+  
+The bot will choose one randomly each time you use that input.
+- The bot saves all learned responses in a file named `responses.json`.
+- ✅ Your responses will be saved even after you close the program 😉
+- Type `clean` to clear the screen, and `bye` to exit the chatbot.
+

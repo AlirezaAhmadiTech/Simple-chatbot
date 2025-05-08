@@ -1,53 +1,41 @@
-import os
 import random
 import json
+import os
 
 RESPONSES_FILE = "responses.json"
 
-def clear_terminal():
-    os.system("cls" if os.name == "nt" else "clear")
+# Load saved responses
+if os.path.exists(RESPONSES_FILE):
+    with open(RESPONSES_FILE, "r") as f:
+        responses = json.load(f)
+else:
+    responses = {}
 
-def load_responses():
-    if os.path.exists(RESPONSES_FILE):
-        with open(RESPONSES_FILE, "r") as file:
-            return json.load(file)
-    return {}
+print("Welcome to Simple Chatbot! Type 'bye' to exit or 'clean' to clear the screen.")
 
-def save_responses(data):
-    with open(RESPONSES_FILE, "w") as file:
-        json.dump(data, file, indent=4)
+while True:
+    user_input = input("You: ").strip().lower()
 
-def parse_multiple_answers(answers):
-    return [answer.strip() for answer in answers.split("-")]
+    if user_input == "bye":
+        print("Bot: Goodbye!")
+        break
 
-def main():
-    responses = load_responses()
+    elif user_input == "clean":
+        os.system("cls" if os.name == "nt" else "clear")
+        continue
 
-    while True:
-        user_input = input("You: ").strip().lower()
+    elif user_input in responses:
+        print("Bot:", random.choice(responses[user_input]))
 
-        if user_input == "bye":
-            print("BOT: Goodbye!")
-            break
-
-        elif user_input == "clean":
-            clear_terminal()
-            continue
-
-        elif user_input not in responses:
-            bot_reply = input("BOT: How should I answer that? ")
-            if "-" in bot_reply:
-                responses[user_input] = parse_multiple_answers(bot_reply)
-            else:
-                responses[user_input] = bot_reply
-            save_responses(responses)
-
+    else:
+        print("Bot: I don't know how to respond to that.")
+        new_response = input("Teach me how to reply: ").strip()
+        if new_response:
+            responses[user_input] = [new_response]
+            print("Bot: Got it! I'll remember that.")
         else:
-            reply = responses[user_input]
-            if isinstance(reply, list):
-                print(f"BOT: {random.choice(reply)}")
-            else:
-                print(f"BOT: {reply}")
+            print("Bot: No response saved.")
 
-if __name__ == "__main__":
-    main()
+# Save responses to file
+with open(RESPONSES_FILE, "w") as f:
+    json.dump(responses, f, indent=4)

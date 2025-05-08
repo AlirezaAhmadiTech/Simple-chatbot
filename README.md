@@ -38,3 +38,21 @@ The bot will choose one randomly each time you use that input.
 - ✅ Your responses will be saved even after you close the program 😉
 - Type `clean` to clear the screen, and `bye` to exit the chatbot.
 
+
+## 🛠️ Example Conversation
+
+```text
+You: hello
+Bot: I don't know how to respond to that.
+Teach me how to reply: hi-hello-hey
+Bot: Got it! I'll remember that.
+
+You: hello
+Bot: hey
+
+You: clean
+# (screen clears)
+
+You: bye
+Bot: Goodbye!
+

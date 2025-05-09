@@ -43,6 +43,11 @@ Type clean to clear the screen, and bye to exit the chatbot.
 
 Bonus: Now the bot has a split personality — you never know what it’ll say 😄
 
+---
+
+🔄 **Update (May 2025):** Now supports multiple random responses using a hyphen! 😄
+
+---
 
 ## 🛠️ Example Conversation
 

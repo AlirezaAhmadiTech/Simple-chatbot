@@ -65,4 +65,13 @@ You: clean
 
 You: bye
 Bot: Goodbye!
+```
+
+![Chatbot Example](https://github.com/AlirezaAhmadiTech/Simple-chatbot/blob/main/sample.png?raw=true)
+
+
+
+
+
+
 

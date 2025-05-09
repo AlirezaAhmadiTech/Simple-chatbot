@@ -29,9 +29,13 @@ while True:
 
     else:
         print("Bot: I don't know how to respond to that.")
-        new_response = input("Teach me how to reply: ").strip()
+        new_response = input("Teach me how to reply (use '-' to separate multiple responses): ").strip()
         if new_response:
-            responses[user_input] = [new_response]
+            response_list = [resp.strip() for resp in new_response.split("-") if resp.strip()]
+            if user_input in responses:
+                responses[user_input].extend(response_list)
+            else:
+                responses[user_input] = response_list
             print("Bot: Got it! I'll remember that.")
         else:
             print("Bot: No response saved.")
